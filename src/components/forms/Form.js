@@ -7,10 +7,10 @@ const Form = (props) => {
     return(
         <form method="post">
             <h2>Adicionar comentário</h2>
-            <input type="text" placeholder="name"></input>
-            <input type="text" placeholder="email"></input>
-            <textarea type="textarea" placeholder="message"></textarea>
-            <button type="button">Send</button>
+            <input type="text" placeholder="name" id="nameForm"></input>
+            <input type="text" placeholder="email" id="emailForm"></input>
+            <textarea type="textarea" placeholder="message" id="messageForm" ></textarea>
+            <button type="button" onClick={() => props.send()}>Send</button>
         </form>
     )
 }

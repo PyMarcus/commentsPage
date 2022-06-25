@@ -31,6 +31,25 @@ class Mainpage extends Component{
         this.setState({comments:[...this.state.comments, new_coment]})
     }
 
+    // add a new comment from the form
+    addCommentFromForm(){
+        let name = document.getElementById("nameForm").value;
+        let email = document.getElementById("emailForm").value;
+        let message = document.getElementById("messageForm").value;
+        let date = (new Date()).toString();
+        let new_comment = {
+            name: name,
+            email: email,
+            message: message,
+            date: date
+        };
+        this.setState({comments:[...this.state.comments, new_comment]});
+
+        // clear the values:
+        document.getElementById("nameForm").value = null;
+        document.getElementById("emailForm").value = null;
+        document.getElementById("messageForm").value = null;
+    }
 
     // return and jsx
     render(){
@@ -54,8 +73,12 @@ class Mainpage extends Component{
 
                 {/*Form here*/}
                 <div>
-                    <Form/>
-                    <button onClick={() => this.addComment()}>dsa</button>
+                    <Form
+                        data={ () => {this.addCommentFromForm()} }
+
+                        send={() => this.addCommentFromForm()}
+                    />
+                  
                 </div>
                 
 
